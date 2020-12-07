@@ -1,2 +1,2 @@
 # XamFormsAwaitablePopup
-An awaitable version of Rg.Popup.Plugin
+An awaitable version of Rg.Plugins.Popup
