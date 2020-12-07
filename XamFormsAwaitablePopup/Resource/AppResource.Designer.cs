@@ -133,6 +133,15 @@ namespace XamFormsAwaitablePopup.Resource {
         }
         
         /// <summary>
+        ///   Cerca una stringa localizzata simile a Awaitable Rg.Plugins.Popup with entry.
+        /// </summary>
+        internal static string RGAwaitableWithEntryPopup {
+            get {
+                return ResourceManager.GetString("RGAwaitableWithEntryPopup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Cerca una stringa localizzata simile a Not awaitable Rg.Plugins.Popup.
         /// </summary>
         internal static string RGNotAwaitablePopup {

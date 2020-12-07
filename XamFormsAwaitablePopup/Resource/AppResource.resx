@@ -141,6 +141,9 @@
   <data name="RGAwaitablePopup" xml:space="preserve">
     <value>Awaitable Rg.Plugins.Popup</value>
   </data>
+  <data name="RGAwaitableWithEntryPopup" xml:space="preserve">
+    <value>Awaitable Rg.Plugins.Popup with entry</value>
+  </data>
   <data name="RGNotAwaitablePopup" xml:space="preserve">
     <value>Not awaitable Rg.Plugins.Popup</value>
   </data>

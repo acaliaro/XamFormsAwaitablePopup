@@ -12,7 +12,7 @@
             BackgroundColor="#2196F3"
             CornerRadius="0">
             <Label
-                FontSize="36"
+                FontSize="Title"
                 HorizontalTextAlignment="Center"
                 Text="Welcome to Xamarin.Forms!"
                 TextColor="White" />
@@ -26,6 +26,7 @@
         <Button Command="{Binding XamarinFormsPopupCommand}" Text="{x:Static resource:AppResource.XFPopup}" />
         <Button Command="{Binding NotAwaitablePopupCommand}" Text="{x:Static resource:AppResource.RGNotAwaitablePopup}" />
         <Button Command="{Binding AwaitablePopupCommand}" Text="{x:Static resource:AppResource.RGAwaitablePopup}" />
+        <Button Command="{Binding AwaitablePopupWithEntryCommand}" Text="{x:Static resource:AppResource.RGAwaitableWithEntryPopup}" />
     </StackLayout>
 
 </ContentPage>
