@@ -1,8 +1,64 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="XamFormsAwaitablePopup.App">
-    <Application.Resources>
+<Application
+    x:Class="XamFormsAwaitablePopup.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converter="clr-namespace:XamFormsAwaitablePopup.Converter">
 
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <converter:DisplayAlertTypeToIsVisibleConverter x:Key="DisplayAlertTypeToIsVisibleConverter" />
+
+            <Color x:Key="PrimaryColor">#369c9e</Color>
+            <Color x:Key="PrimaryDarkColor">#006d70</Color>
+            <Color x:Key="NavigationBarTextColor">White</Color>
+            <Color x:Key="AccentColor">#F6A700</Color>
+
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource PrimaryColor}" />
+                <Setter Property="BarTextColor" Value="{StaticResource NavigationBarTextColor}" />
+            </Style>
+            
+            <Style x:Key="BaseButtonStyle" TargetType="Button">
+                <Setter Property="HeightRequest" Value="60" />
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="Margin" Value="10,0,10,0" />
+                <Setter Property="CornerRadius" Value="20" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource AccentColor}" />
+                <Setter Property="TextColor" Value="{DynamicResource PrimaryDarkColor}" />
+                <Setter Property="BorderColor" Value="{DynamicResource PrimaryDarkColor}" />
+                <Setter Property="BorderWidth" Value="2" />
+            </Style>
+
+            <!--  Questo serve per poter ereditare lo stile implicito dei buttons....  -->
+            <Style BasedOn="{StaticResource BaseButtonStyle}" TargetType="Button" />
+
+            <Style
+                x:Key="DisplayAlertButton"
+                BasedOn="{StaticResource BaseButtonStyle}"
+                TargetType="Button">
+                <Setter Property="Margin" Value="5,0" />
+                <Setter Property="Padding" Value="5" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="HeightRequest" Value="40" />
+            </Style>
+
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="TextColor" Value="{DynamicResource PrimaryDarkColor}" />
+            </Style>
+
+            <Style TargetType="Entry">
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="TextColor" Value="{DynamicResource PrimaryDarkColor}" />
+            </Style>
+
+            <Style x:Key="LabelCollectionView" TargetType="Label">
+                <Setter Property="FontSize" Value="Large" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+            </Style>
+
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

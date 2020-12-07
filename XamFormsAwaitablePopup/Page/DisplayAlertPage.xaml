@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage
+    x:Class="XamFormsAwaitablePopup.Page.DisplayAlertPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:resource="clr-namespace:XamFormsAwaitablePopup.Resource"
+    xmlns:viewmodel="clr-namespace:XamFormsAwaitablePopup.ViewModel">
+
+    <!--  You can set an animation in the xaml file or in the csharp code behind  -->
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8" />
+    </pages:PopupPage.Animation>
+
+    <!--  You can use any elements here which are extended from Xamarin.Forms.View  -->
+    <Frame
+        Margin="20"
+        Padding="10"
+        x:DataType="viewmodel:DisplayAlertViewModel"
+        BorderColor="{StaticResource PrimaryColor}"
+        CornerRadius="20"
+        HorizontalOptions="CenterAndExpand"
+        VerticalOptions="CenterAndExpand">
+        <StackLayout Spacing="0">
+
+            <Label FontSize="Large" Text="{Binding Title}" />
+            <Label FontSize="Medium" Text="{Binding Message}" />
+            <Entry IsVisible="{Binding InputType, Converter={StaticResource DisplayAlertTypeToIsVisibleConverter}, ConverterParameter='OKCANCELWITHINPUT'}" Text="{Binding InputValue}" />
+
+            <StackLayout
+                Margin="0,10,0,0"
+                HorizontalOptions="End"
+                Orientation="Horizontal">
+                <Button
+                    Command="{Binding NoCommand}"
+                    IsVisible="{Binding InputType, Converter={StaticResource DisplayAlertTypeToIsVisibleConverter}, ConverterParameter='YESNO'}"
+                    Style="{StaticResource DisplayAlertButton}"
+                    Text="{x:Static resource:AppResource.No}" />
+                <Button
+                    Command="{Binding YesCommand}"
+                    IsVisible="{Binding InputType, Converter={StaticResource DisplayAlertTypeToIsVisibleConverter}, ConverterParameter='YESNO'}"
+                    Style="{StaticResource DisplayAlertButton}"
+                    Text="{x:Static resource:AppResource.Yes}" />
+                <Button
+                    Command="{Binding CancelCommand}"
+                    IsVisible="{Binding InputType, Converter={StaticResource DisplayAlertTypeToIsVisibleConverter}, ConverterParameter='OKCANCEL|OKCANCELWITHINPUT'}"
+                    Style="{StaticResource DisplayAlertButton}"
+                    Text="{x:Static resource:AppResource.Cancel}" />
+                <Button
+                    Command="{Binding OkCommand}"
+                    IsVisible="{Binding InputType, Converter={StaticResource DisplayAlertTypeToIsVisibleConverter}, ConverterParameter='OK|OKCANCEL|OKCANCELWITHINPUT'}"
+                    Style="{StaticResource DisplayAlertButton}"
+                    Text="{x:Static resource:AppResource.Ok}" />
+
+            </StackLayout>
+        </StackLayout>
+    </Frame>
+</pages:PopupPage>

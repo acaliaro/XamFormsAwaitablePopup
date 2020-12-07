@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="XamFormsAwaitablePopup.Page.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:resource="clr-namespace:XamFormsAwaitablePopup.Resource"
+    xmlns:viemodel="clr-namespace:XamFormsAwaitablePopup.ViewModel">
+
+    <StackLayout x:DataType="viemodel:MainViewModel">
+        <Frame
+            Padding="24"
+            BackgroundColor="#2196F3"
+            CornerRadius="0">
+            <Label
+                FontSize="36"
+                HorizontalTextAlignment="Center"
+                Text="Welcome to Xamarin.Forms!"
+                TextColor="White" />
+        </Frame>
+        <Label
+            Padding="30,10,30,10"
+            FontSize="Title"
+            Text="Start developing now" />
+
+
+        <Button Command="{Binding XamarinFormsPopupCommand}" Text="{x:Static resource:AppResource.XFPopup}" />
+        <Button Command="{Binding NotAwaitablePopupCommand}" Text="{x:Static resource:AppResource.RGNotAwaitablePopup}" />
+        <Button Command="{Binding AwaitablePopupCommand}" Text="{x:Static resource:AppResource.RGAwaitablePopup}" />
+    </StackLayout>
+
+</ContentPage>
